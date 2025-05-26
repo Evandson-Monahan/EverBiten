@@ -1,0 +1,176 @@
+/* Estilos Gerais */
+:root {
+    --cor-primaria: #004A4A;
+    --cor-secundaria: #082026;
+    --cor-texto: #202020;
+    --cor-fundo: #CFCFCF;
+    --cor-branco: #FFFFFF;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Cabeçalho Padrão */
+.header {
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+    color: var(--cor-branco);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 20px;
+    padding-left: 100px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Mudado de right para left */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.header h1 {
+    font-weight: 700;
+    font-size: 60px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    padding-right: 0;
+    margin-left: 0;
+}
+
+/* Cards Padrão */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+    color: var(--cor-branco);
+    padding: 1.5rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Tabelas */
+.table-container {
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 0;
+}
+
+.restaurantes-table {
+    margin-bottom: 0;
+}
+
+.restaurantes-table thead {
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+    color: var(--cor-branco);
+}
+
+.restaurantes-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 1rem;
+}
+
+.restaurantes-table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+/* Botões */
+.btn {
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    border: none;
+}
+
+.btn-danger {
+    background: #dc3545;
+    border: none;
+}
+
+/* Formulários */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 0.25rem rgba(37, 117, 252, 0.25);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.image-background {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85vh; /* Ajuste esta porcentagem conforme necessário */
+    background-image: url('/images/Lista-Restaurantes.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Mantém atrás do conteúdo */
+    opacity: 0.9; /* Ajuste a transparência */
+}
+
+/* Garante que o conteúdo principal não fique escondido */
+.container.animated {
+    margin-bottom: 35vh; /* Espaço para a imagem */
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
