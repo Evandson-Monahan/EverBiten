@@ -69,6 +69,6 @@ everbiten/
 -Sistema de login
 
 <p align="center"> <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" /> <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white" /> <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" /> </p>
-🔗 Repositório: github.com/seu-usuario/everbiten
+🔗 Repositório: https://github.com/Evandson-Monahan/EverBiten
 
 ✨ Projeto desenvolvido para estudos em Java/Spring Boot/Front-end/Banco de Dados
