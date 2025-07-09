@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Restaurante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container text-center">
+            <img src="/images/EverBiten-Logo.JPEG" alt="EverBiten-Logo" class="logo">
+            <h1 th:text="${restaurante.nome}"></h1>
+        </div>
+    </div>
+
+    <div class="container animated">
+        <div class="card card-restaurante mb-4">
+            <div class="card-header">
+                <h2 class="mb-0">Informações do Restaurante</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Descrição:</strong> <span th:text="${restaurante.descricao}"></span></p>
+                <p><strong>Tipo de Culinária:</strong> <span th:text="${restaurante.culinaria}"></span></p>
+                <p><strong>Ano de Fundação:</strong> <span th:text="${restaurante.anoFundacao}"></span></p>
+            </div>
+        </div>
+
+        <div class="card card-restaurante">
+            <div class="card-header">
+                <h2 class="mb-0">Avaliações</h2>
+            </div>
+            <div class="card-body">
+                <!-- Formulário para nova avaliação -->
+                <form id="formAvaliacao" class="mb-4">
+                    <input type="hidden" id="restauranteId" th:value="${restaurante.id}">
+                    <div class="mb-3">
+                        <label for="comentario" class="form-label">Seu Comentário</label>
+                        <textarea class="form-control" id="comentario" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nota" class="form-label">Nota (1-5)</label>
+                        <select class="form-select" id="nota" required>
+                            <option value="">Selecione...</option>
+                            <option value="1">1 ⭐</option>
+                            <option value="2">2 ⭐⭐</option>
+                            <option value="3">3 ⭐⭐⭐</option>
+                            <option value="4">4 ⭐⭐⭐⭐</option>
+                            <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Avaliação</button>
+                </form>
+
+                <!-- Lista de avaliações -->
+                <div class="list-group" id="lista-avaliacoes">
+                    <div th:each="avaliacao : ${restaurante.avaliacoes}" class="list-group-item mb-2">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong th:text="${#strings.repeat('⭐', avaliacao.nota)}"></strong>
+                                <span th:text="' (' + ${avaliacao.nota} + ' estrelas)'"></span>
+                            </div>
+                            <small class="text-muted" th:text="${#temporals.format(avaliacao.dataCriacao, 'dd/MM/yyyy HH:mm')}"></small>
+                        </div>
+                        <p class="mb-0 mt-2" th:text="${avaliacao.comentario}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/restaurantes" class="btn btn-secondary">Voltar à Lista</a>
+        </div>
+    </div>
+    <div class="image-background"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/avaliacao.js"></script>
+</body>
+</html>
