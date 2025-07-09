@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Restaurantes - EverBiten</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container text-center">
+            <img src="/images/EverBiten-Logo.JPEG" alt="EverBiten-Logo" class="logo">
+            <h1>The EverBiten</h1>
+            <h5>Avaliações de Restaurantes</h5>
+            <hr></hr>
+            <p>Um lugar para você, tutor Everton Bitencourt, cadastrar e avaliar os restaurantes que já visitou</p>
+        </div>
+    </div>
+
+    <div class="container animated">
+        <div class="table-container">
+            <table class="table restaurantes-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Culinária</th>
+                        <th>Ano Fundação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="restaurante : ${restaurantes}">
+                        <td th:text="${restaurante.nome}"></td>
+                        <td th:text="${restaurante.culinaria}"></td>
+                        <td th:text="${restaurante.anoFundacao}"></td>
+                        <td>
+                            <a th:href="@{/restaurantes/{id}(id=${restaurante.id})}" class="btn btn-primary btn-sm">Detalhes</a>
+                            <a th:href="@{/restaurantes/editar/{id}(id=${restaurante.id})}" class="btn btn-secondary btn-sm">Editar</a>
+                            <form th:action="@{/restaurantes/excluir/{id}(id=${restaurante.id})}" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/restaurantes/novo" class="btn btn-primary">Novo Restaurante</a>
+        </div>
+    </div>
+    <div class="image-background"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

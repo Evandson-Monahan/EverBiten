@@ -1,0 +1,8 @@
+com\everbiten\repository\RestauranteRepository.class
+com\everbiten\controller\AvaliacaoController.class
+com\everbiten\model\Restaurante.class
+com\everbiten\repository\AvaliacaoRepository.class
+com\everbiten\dto\AvaliacaoDTO.class
+com\everbiten\EverbitenApplication.class
+com\everbiten\model\Avaliacao.class
+com\everbiten\controller\RestauranteController.class
